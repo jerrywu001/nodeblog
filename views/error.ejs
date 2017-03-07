@@ -1,0 +1,23 @@
+<% include header.ejs %>
+<div class="middle-box text-center animated fadeInDown">
+	<h1><%= error.status %></h1>
+	<h3 class="font-bold"><%= message %></h3>
+	<div class="error-desc">
+		<div class="discri"></div>
+		<div class="form-inline m-t" role="form">
+			<button type="button" onclick="javascript:history.back();" class="btn btn-default">
+				<strong><i class="fa fa-arrow-left"></i>&nbsp;返回</strong>
+			</button>
+			<button class="btn btn-primary" type="button"><strong><i class="fa fa-check"></i>&nbsp;首页</strong></button>
+		</div>
+	</div>
+	<script>
+	var status = '<%= error.status %>';
+	if( status === '404' ) {
+	    $('.discri').html('Sorry, but the page you are looking for has note been found. Try checking the URL for error, then hit the refresh button on your browser or try found something else in our app.');
+	} else {
+	     $('.discri').html('The server encountered something unexpected that didn\'t allow it to complete the request. We apologize.');
+	}
+	</script>
+</div>
+<% include footer.ejs %>
