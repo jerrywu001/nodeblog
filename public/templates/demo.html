@@ -1,0 +1,39 @@
+<!-- 对话框demo 需要引入bootstrap.js bootstrap.css -->
+<br/><br/><br/><br/>
+<hr/>
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">点击我看看</button>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">{{dialog.title}}</h4>
+      </div>
+      <div class="modal-body">{{dialog.content}}</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">完成</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 对话框demo -->
+
+<!-- select demo -->
+<hr/>
+<h4>把对象作为value</h4>
+<label>
+  <select class="form-control" ng-model="vm.value" ng-options="city.label for city in vm.cities">
+    <option value="">-- 请选择城市 --</option>
+  </select></label>
+<div>您输入的是：{{vm.value}}</div>
+
+
+<h4>把code作为value</h4>
+<label>
+  <select class="form-control" ng-model="vm.label" ng-options="city.label as city.label for city in vm.cities">
+    <option value="">-- 请选择城市 --</option>
+  </select>
+  </label>
+<div>您输入的是：{{vm.label}}</div>

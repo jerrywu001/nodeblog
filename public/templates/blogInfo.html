@@ -1,0 +1,55 @@
+<div class="alert alert-danger alert-dismissable hide">
+	<strong><b></b></strong>
+</div>
+<div class="blogInfo">
+	<div class="blogTitle">
+		<h1>{{info.blogTitle}}</h1>
+		<div class="titleWarp">
+			<span>作者：{{info.blogAuthor}}</span>
+			<span>发布时间：<label id="blogTime">{{info.blogTime | dateType}}</label></span>
+		</div>
+	</div>
+	<div class="blogDetail"></div>
+	<div class="reviewWarp">
+		<h3>评论列表</h3>
+		<div class="input-group">
+			<input type="text" class="form-control" id="review" placeholder="输入评论内容" ng-model="info.reviewText" ng-focus="hideReply();"/>
+			<div class="input-group-btn">
+				<button type="button" id="reviewBtn" class="btn btn-primary" ng-click="review();">
+				<strong><i class="fa fa-comments"></i>&nbsp;评论</strong>
+				</button>
+			</div>
+		</div>
+		<div class="feed-activity-list">
+			<div class="feed-element" id="rwNull" ng-show="reviewEmpty">暂无评论！</div>
+			<div class="feed-element" ng-repeat="list in reviews">
+				<a href="javascript:;" class="pull-left">
+					<img alt="image" class="img-circle" ng-src="{{list.head | headType}}"/>
+				</a>
+				<div class="media-body ">
+					<small class="pull-right"><a href="javascript:;" class="replyLink" ng-click="showReply(list);">回复</a></small>
+					<strong> {{list.nick}} </strong> 
+					<label ng-show="list.replyTo!==''">&nbsp;回复&nbsp;<strong>{{list.replyTo}}</strong></label> <br>
+					<small class="text-muted"> {{list.time | timeType}} </small>
+					<div class="well">
+						<p class="wellQuote" ng-show="list.quoteCntent!==''"><b>引用</b>&nbsp;&nbsp;“{{list.quoteCntent}}”</p>
+						<p class="wellText"> {{list.content}} </p>
+					</div> 
+					<div class="input-group reply" ng-show="list.showReply">
+						<input type="text" class="form-control replyText" ng-model="list.replyText" ng-init="list.replyText=''" placeholder="输入回复内容"/>
+						<div class="input-group-btn">
+							<button type="button" class="btn btn-primary replyBtn" ng-click="reply(list);">
+							<strong><i class="fa fa-arrow-left"></i>&nbsp;回复</strong>
+							</button>
+						</div>
+					</div>                                       
+				</div>
+			</div>
+		</div>
+		<div class="rwPage" ng-hide="reviewEmpty">
+			<button class="btn btn-primary btn-block m-t" ng-click="reviewMore();">
+				<i class="fa fa-arrow-down"></i>&nbsp;<b>查看更多</b>
+			</button>
+		</div>
+	</div>
+</div>

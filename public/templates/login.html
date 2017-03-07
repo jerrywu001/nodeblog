@@ -1,0 +1,28 @@
+<div class="alert alert-danger alert-dismissable" ng-hide="login.correct">
+	<button aria-hidden="true" data-dismiss="alert" class="close" type="button">x</button>
+	<strong><i class="fa fa-times"></i>&nbsp;<b>{{login.error}}</b></strong>
+</div>
+<form class="form-horizontal" style="width: 600px;" name="loginF">
+	<legend style="padding-bottom: 15px;">用户登录</legend>
+	<div class="form-group">
+		<label class="col-lg-2 control-label">用户名：</label>
+		<div class="col-lg-10">
+			<input type="text" id="username" ng-model="login.username" autofocus autocomplete class="form-control" placeholder="用户名" required/>
+			<span class="help-block m-b-none">你的账户名称，用于登录和显示。</span>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-lg-2 control-label">口令：</label>
+		<div class="col-lg-10">
+			<input type="password" class="form-control" id="password" ng-model="login.password" placeholder="密码" required/>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-lg-offset-2 col-lg-10">
+		<button class="btn btn-primary" type="button" ng-click="submit();" ng-disabled="loginF.$invalid"><strong><i class="fa fa-check"></i>&nbsp;登录</strong></button>
+		<button type="button" onclick="javascript:history.back();" class="btn btn-default">
+			<strong><i class="fa fa-arrow-left"></i>&nbsp;返回</strong>
+		</button>
+		</div>
+	</div>
+</form>

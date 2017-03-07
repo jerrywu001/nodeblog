@@ -1,0 +1,53 @@
+<div class="alert alert-danger alert-dismissable hide">
+	<button aria-hidden="true" data-dismiss="alert" class="close" type="button">x</button>
+	<strong><i class="fa fa-times"></i>&nbsp;<b></b></strong>
+</div>
+<div class="form-horizontal" style="width: 850px;">
+	<legend style="padding-bottom: 15px;">用户资料修改</legend>
+	<div class="form-group">
+		<label class="col-lg-2 control-label">用户名：</label>
+		<div class="col-lg-10">
+		<input type="text" class="form-control" id="username" ng-model="user.username" disabled/>
+		<p class="help-block">你的账户名称，不可二次修改。</p>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-lg-2 control-label">头像：</label>
+		<div class="col-lg-10">
+		<div class="table-pic">
+			<div class="table-picboxW">
+				<div class="table-picbox">
+					<span><img src="{{user.avatar | headType}}" id="avatar" alt="头像" style="width:130px;height:130px;"/></span>
+					<div id="avatarPicker">选择头像</div>
+				</div>
+			</div> 
+		</div>
+		</div>
+	   </div>
+	<div class="form-group">
+		<label class="col-lg-2 control-label">新口令：</label>
+		<div class="col-lg-10">
+		<input type="password" class="form-control" id="password" ng-model="user.password"/>
+		</div>
+	   </div>
+	   <div class="form-group">
+	  <label class="col-lg-2 control-label">重复输入新口令：</label>
+	  <div class="col-lg-10">
+		  <input type="password" class="form-control" id="passwordRepeat" ng-model="user.passwordRepeat"/>
+	  </div>
+	   </div>
+	   <div class="form-group">
+	  <label class="col-lg-2 control-label">自我描述：</label>
+	  <div class="col-lg-10">
+		  <textarea class="form-control" id="desc" ng-model="user.desc" style="width: 703px;height: 150px;"></textarea>
+	  </div>
+	   </div>
+	   <div class="form-group">
+		<div class="col-lg-offset-2 col-lg-10">
+		<button class="btn btn-primary" type="button" ng-click="submit();"><strong><i class="fa fa-check"></i>&nbsp;保存</strong></button>
+		<button type="button" onclick="javascript:history.back();" class="btn btn-default">
+			<strong><i class="fa fa-arrow-left"></i>&nbsp;返回</strong>
+		</button>
+		</div>
+	</div>
+</div>

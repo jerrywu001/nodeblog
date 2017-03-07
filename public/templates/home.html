@@ -1,0 +1,22 @@
+<h1>Express</h1>
+<!-- <ul class="loginStatus" home-index-bar></ul> -->	<!-- index-bar定义在directives.js里面 -->
+<ul class="loginStatus" ng-show="user">
+	<li>Welcome <b ng-bind="user"></b></li>
+	<li><a href="/u_blogSend">发布博客</a></li>
+	<li><a href="/u_user">修改资料</a></li>
+	<li><a href="/u_logout">退出</a></li>
+</ul>
+<ul class="loginStatus" ng-hide="user">
+	<li>Welcome!</li>
+	<li><a href="/u_login">登录</a></li>
+	<li><a href="/u_reg">注册</a></li>
+</ul>
+<div class="blogList">
+	<h5 style="font-size: 14px; font-weight: bold; border-bottom: 1px #ddd solid; padding-bottom: 10px;">博客列表</h5>
+	<div class="blogListWarp">
+		<p ng-repeat="l in list">
+			<a target="_blank" title="{{l.title}}" href="/u_blogInfo/{{l.blogId}}.html">{{l.title}}</a>
+		</p>
+	</div>
+</div>
+	
